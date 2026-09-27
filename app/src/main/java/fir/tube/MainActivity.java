@@ -127,7 +127,6 @@ public class MainActivity extends Activity {
         protected void onWindowVisibilityChanged(int visibility) {
             if (ZeroActivity.back) {    
                 super.onWindowVisibilityChanged(View.VISIBLE);
-                if (visibility != View.VISIBLE) detachFromUI();                          
             } else {
                 super.onWindowVisibilityChanged(visibility);
             }
@@ -136,8 +135,7 @@ public class MainActivity extends Activity {
         @Override
         public void onWindowFocusChanged(boolean hasWindowFocus) {
             if (ZeroActivity.back) {                                        
-                super.onWindowFocusChanged(true); 
-                if (!hasWindowFocus) detachFromUI();
+                super.onWindowFocusChanged(true);                 
             } else {
                 super.onWindowFocusChanged(hasWindowFocus);
             }
@@ -166,13 +164,7 @@ public class MainActivity extends Activity {
         try {        
         if (sharedWeb != null && sharedWeb.getParent() == null) root.addView(sharedWeb);
         } catch (Throwable t) {}
-    }
-
-    private static void detachFromUI() {
-    try {
-    if (sharedWeb != null && sharedWeb.getParent() != null) ((ViewGroup) sharedWeb.getParent()).removeView(sharedWeb);
-    } catch (Throwable t) {}
-    }
+    }    
 
     @Override
     protected void onPause() {
@@ -183,15 +175,8 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-    super.onWindowFocusChanged(hasFocus);
-    if (hasFocus) attachToUI();
-    }
-
-    @Override
     protected void onResume() {
-        super.onResume();
-        attachToUI();
+        super.onResume();        
         if (ZeroActivity.wait) {
            Intent i = new Intent(this, SecurityActivity.class);
            i.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
