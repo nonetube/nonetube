@@ -190,16 +190,18 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onPause() {
+        android.os.SystemClock.sleep(700);
         super.onPause(); 
+        android.os.SystemClock.sleep(700);
         if (sharedWeb != null) {            
             sharedWeb.onResume();
             sharedWeb.resumeTimers();
         } 
-        android.os.SystemClock.sleep(500);
+        android.os.SystemClock.sleep(700);
         int i=0;
-        while (!isAppForeground() && isMainActivityInStack() && (isAudioPlaying() || i++ <30)) {
+        while (!isAppForeground() && isMainActivityInStack() && (isAudioPlaying() || i++ <35)) {
              ZeroActivity.wait = true;
-             android.os.SystemClock.sleep(500);             
+             android.os.SystemClock.sleep(800);             
         }        
     }
 
