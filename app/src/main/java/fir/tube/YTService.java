@@ -20,7 +20,7 @@ public class YTService extends Service {
         "  const isAd = player.classList.contains('ad-showing') || player.classList.contains('ad-interrupting');" +
         "  if (!isAd && isFinite(video.duration) && video.duration > 0) {" +
         "  if ("+ZeroActivity.rep+"==true){"+
-        "    if (video.duration - video.currentTime <= 0.4) {" +
+        "    if (video.duration - video.currentTime <= 1) {" +
         "      video.currentTime = 0;" +
         "      video.play();" +
         "    }}" +
