@@ -49,11 +49,16 @@
 		    android:screenOrientation="portrait"
 			android:excludeFromRecents="true"/>
 
+		<activity android:name=".BackActivity"
+            android:exported="false"
+			android:launchMode="singleInstance"
+		    android:screenOrientation="portrait"
+			android:excludeFromRecents="true"/>
+
         <activity android:name=".MainActivity"
             android:exported="false"
             android:launchMode="singleInstance"
-			android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"
-			android:excludeFromRecents="true"/>
+			android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"/>
 
          <service 
             android:name=".YTService"
