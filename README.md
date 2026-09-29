@@ -1,6 +1,6 @@
 # FirTube
 
-FirTube — simple webView browser for YouTube
+FirTube — simple webView-based browser for YouTube
 
 ​Features:  
 — ​Background play mode  
