@@ -67,8 +67,9 @@ public class MainActivity extends Activity {
         menuButton.setOnClickListener(v -> {
             android.widget.PopupMenu popup = new android.widget.PopupMenu(this, v);
             popup.getMenu().add(0, 1, 0, "Settings");
-            popup.getMenu().add(0, 2, 0, "Back");
-            popup.getMenu().add(0, 3, 0, "Restart");
+            popup.getMenu().add(0, 2, 0, "Copy link");
+            popup.getMenu().add(0, 3, 0, "Back");
+            popup.getMenu().add(0, 4, 0, "Restart");            
 
             popup.setOnMenuItemClickListener(item -> {
                 int id = item.getItemId();
@@ -78,10 +79,18 @@ public class MainActivity extends Activity {
                     startActivity(i);
                     moveTaskToBack(true);
                 } else if (id == 2) {
-                    if (sharedWeb != null && sharedWeb.canGoBack()) sharedWeb.goBack();
+                    if (sharedWeb != null && sharedWeb.getUrl() != null) {
+                        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);     
+                        android.content.ClipData clip = android.content.ClipData.newPlainText("Link", sharedWeb.getUrl());                                             
+                        if (clipboard != null) {            
+                            clipboard.setPrimaryClip(clip);
+                        }
+                    }
                 } else if (id == 3) {
+                    if (sharedWeb != null && sharedWeb.canGoBack()) sharedWeb.goBack();
+                } else if (id == 4) {
                     if (sharedWeb != null) sharedWeb.reload();
-                }
+                } 
                 return true;
             });
             popup.show();
@@ -190,7 +199,6 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onPause() {
-        android.os.SystemClock.sleep(700);
         super.onPause(); 
         android.os.SystemClock.sleep(700);
         if (sharedWeb != null) {            
@@ -201,7 +209,7 @@ public class MainActivity extends Activity {
         int i=0;
         while (!isAppForeground() && isMainActivityInStack() && (isAudioPlaying() || i++ <35)) {
              ZeroActivity.wait = true;
-             android.os.SystemClock.sleep(800);             
+             android.os.SystemClock.sleep(700);             
         }        
     }
 
