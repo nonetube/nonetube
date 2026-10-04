@@ -199,14 +199,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onPause() {
-        android.os.SystemClock.sleep(500);        
         super.onPause(); 
-        android.os.SystemClock.sleep(500);
-        if (sharedWeb != null) {            
-            sharedWeb.onResume();
-            sharedWeb.resumeTimers();
-        } 
-        android.os.SystemClock.sleep(500);
         while (!isAppForeground() && isMainActivityInStack() && isAudioPlaying()) {
              ZeroActivity.wait = true;
              android.os.SystemClock.sleep(500);             
