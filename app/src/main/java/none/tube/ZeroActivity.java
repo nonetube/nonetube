@@ -45,7 +45,7 @@ public class ZeroActivity extends Activity {
         root.setPadding(50, 50, 50, 50);
 
 		Switch swBLOCK = new Switch(this);
-        swBLOCK.setText("Block Unknown Links And Protocols   ");
+        swBLOCK.setText("Block Unknown Links   ");
         swBLOCK.setTextColor(Color.WHITE);
         swBLOCK.setTextSize(20);
         swBLOCK.setChecked(BlockUnknownLinksAndProtocols);
