@@ -7,8 +7,8 @@ namespace "none.tube"
 compileSdk 35
 
 lint {
-        checkReleaseBuilds false
-    }
+   checkReleaseBuilds false
+}
 
 defaultConfig {  
     applicationId "none.tube"  
