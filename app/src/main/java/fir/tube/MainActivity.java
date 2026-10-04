@@ -202,7 +202,6 @@ public class MainActivity extends Activity {
         super.onStop();         
                 
         while (!isAppForeground() && isMainActivityInStack() && isAudioPlaying()) {
-            ZeroActivity.wait = true;
             android.os.SystemClock.sleep(500);             
         } 
         
