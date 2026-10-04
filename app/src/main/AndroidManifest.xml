@@ -19,8 +19,7 @@
         <activity android:name=".ZeroActivity"
             android:exported="false"
 			android:launchMode="singleInstance"
-			android:screenOrientation="portrait"
-			android:excludeFromRecents="true"/>
+			android:screenOrientation="portrait"/>
 
         <activity android:name=".MainActivity"
             android:exported="false"
