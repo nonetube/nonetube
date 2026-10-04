@@ -1,1 +1,1 @@
-FirTube — simple webView browser for YouTube
+NoneTube — very simple webView-based browser for YouTube with background playback
