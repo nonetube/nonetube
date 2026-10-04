@@ -178,12 +178,7 @@ public class MainActivity extends Activity {
         }
         root.addView(sharedWeb);
     }
-
-    private boolean isAudioPlaying() {
-    android.media.AudioManager am = (android.media.AudioManager) getSystemService(Context.AUDIO_SERVICE);
-    return am != null && am.isMusicActive();
-    }
-
+    
     @Override
     protected void onPause() {
         super.onPause(); 
