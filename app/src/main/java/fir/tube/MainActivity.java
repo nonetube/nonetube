@@ -115,19 +115,6 @@ public class MainActivity extends Activity {
         
     }}
 
-    public boolean isMainActivityInStack() {
-    ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-    if (am == null) return false;
-
-    for (ActivityManager.AppTask task : am.getAppTasks()) {
-        ActivityManager.RecentTaskInfo info = task.getTaskInfo();
-        if (info != null && info.baseActivity != null && info.baseActivity.getClassName().equals(MainActivity.class.getName())) {
-            return true;
-        }
-    }
-    return false;
-    }
-
 
     private boolean isAppForeground() {
     ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
