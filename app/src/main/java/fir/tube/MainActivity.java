@@ -169,7 +169,6 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle b) {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(b);
         root = new FrameLayout(this);
@@ -206,20 +205,12 @@ public class MainActivity extends Activity {
             ZeroActivity.wait = true;
             android.os.SystemClock.sleep(500);             
         } 
-
-        if (!isAppForeground()) ZeroActivity.wait = true;
-                     
-    }
+        
+   }
 
     @Override
     protected void onResume() {
-        super.onResume();
-        if (ZeroActivity.wait) {
-           Intent i = new Intent(this, SecurityActivity.class);
-           i.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-           startActivity(i);     
-           moveTaskToBack(true);
-        }
+        super.onResume();        
         
         if (sharedWeb != null) {
             attachToUI();
