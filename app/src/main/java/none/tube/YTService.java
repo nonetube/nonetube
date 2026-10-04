@@ -119,7 +119,7 @@ public class YTService extends Service {
     }
 
     if (needNew || activeId == null) {
-        activeId = "fir.tube" + Long.toHexString(new java.security.SecureRandom().nextLong());
+        activeId = "none.tube" + Long.toHexString(new java.security.SecureRandom().nextLong());
         NotificationChannel nch = new NotificationChannel(activeId, "Media Play", NotificationManager.IMPORTANCE_LOW);
 		nch.setLockscreenVisibility(Notification.VISIBILITY_SECRET);		
         nm.createNotificationChannel(nch);
