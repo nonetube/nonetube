@@ -3,7 +3,7 @@ id 'com.android.application'
 }
 
 android {
-namespace "fir.tube"
+namespace "none.tube"
 compileSdk 35
 
 lint {
