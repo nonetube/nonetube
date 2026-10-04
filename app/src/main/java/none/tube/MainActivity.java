@@ -197,6 +197,13 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        android.os.SystemClock.sleep(500);
+        if (!isAppForeground()) android.os.SystemClock.sleep(1500);
+    }
+
+    @Override
     protected void onStop() {
         
         super.onStop();         
