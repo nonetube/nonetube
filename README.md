@@ -1,10 +1,5 @@
-# FirTube
+# NoneTube
 
-FirTube — simple webView-based browser for YouTube
+NoneTube — light webView-based browser for YouTube with background playback.
 
-​Features:  
-— ​Background play mode  
-— ​Ad block and skip  
-— ​Video auto-repeat  
-— ​You can set password for the app  
-— Data Wipe button
+It based on FirTube code, but without password, native libs, and other useless features.
