@@ -22,11 +22,8 @@ buildTypes {
     release {  
         minifyEnabled false  
         shrinkResources false  
-         }  
-}
-        
-
-}
+   }  
+} }
 
 
 dependencies {
