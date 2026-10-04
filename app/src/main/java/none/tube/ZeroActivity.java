@@ -36,7 +36,6 @@ public class ZeroActivity extends Activity {
    
     @Override
     protected void onCreate(Bundle b) {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(b); 
         LinearLayout root = new LinearLayout(this);
