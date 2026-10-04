@@ -14,42 +14,8 @@
         android:fullBackupContent="false"
 		android:extractNativeLibs="false"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
-
-		<activity-alias
-		android:name=".TransactionActivityAlias" 
-		android:exported="true"
-        android:targetActivity=".TransactionActivity">
-          <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-             <category android:name="android.intent.category.LAUNCHER" />
-          </intent-filter>
-        </activity-alias>
 		
-		<activity
-            android:name=".TransactionActivity"
-			android:exported="false"
-			android:process=":transaction"
-			android:launchMode="singleInstance"
-			android:screenOrientation="portrait"
-			android:excludeFromRecents="true"/>
-		
-        <activity
-            android:name=".SecurityActivity"
-			android:exported="false"
-			android:process=":security"
-			android:launchMode="singleInstance"
-			android:screenOrientation="portrait"
-			android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateAlwaysVisible"
-			android:excludeFromRecents="true"/>
-
         <activity android:name=".ZeroActivity"
-            android:exported="false"
-			android:launchMode="singleInstance"
-		    android:screenOrientation="portrait"
-			android:excludeFromRecents="true"/>
-
-		<activity android:name=".BackActivity"
             android:exported="false"
 			android:launchMode="singleInstance"
 		    android:screenOrientation="portrait"
@@ -60,6 +26,16 @@
             android:launchMode="singleInstance"
 			android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"/>
 
+		<activity-alias
+		android:name=".ActivityAlias" 
+		android:exported="true"
+        android:targetActivity=".MainActivity">
+          <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity-alias>
+
          <service 
             android:name=".YTService"
             android:exported="false"
@@ -67,6 +43,6 @@
             <property 
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Background_WebView"/>
-				</service>
+		</service>
     </application>
 </manifest>
