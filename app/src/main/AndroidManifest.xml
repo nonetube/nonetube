@@ -9,22 +9,20 @@
         android:label="FirTube"
 		android:icon="@drawable/firtube"
 		android:allowBackup="false"
+		android:fullBackupContent="false"		
 		android:debuggable="false"
 		android:requestLegacyExternalStorage="false"
-        android:fullBackupContent="false"
-		android:extractNativeLibs="false"
+        android:extractNativeLibs="false"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
 		
         <activity android:name=".ZeroActivity"
             android:exported="false"
-			android:launchMode="singleInstance"
-		    android:screenOrientation="portrait"
+			android:screenOrientation="portrait"
 			android:excludeFromRecents="true"/>
 
         <activity android:name=".MainActivity"
             android:exported="false"
-            android:launchMode="singleInstance"
-			android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"/>
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"/>
 
 		<activity-alias
 		android:name=".ActivityAlias" 
@@ -44,5 +42,6 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Background_WebView"/>
 		</service>
+		
     </application>
 </manifest>
