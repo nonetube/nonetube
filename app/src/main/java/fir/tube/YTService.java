@@ -138,6 +138,10 @@ public class YTService extends Service {
     } else {
         startForeground(1, notif);
     }}
-    
 
+	    @Override
+    public IBinder onBind(Intent intent) {        
+        return null;
+    }
+    
 }
