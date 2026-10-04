@@ -198,12 +198,10 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onPause() {
+    protected void onStop() {
         
-        super.onPause();         
-        
-        android.os.SystemClock.sleep(500);
-        
+        super.onStop();         
+                
         while (!isAppForeground() && isMainActivityInStack() && isAudioPlaying()) {
             ZeroActivity.wait = true;
             android.os.SystemClock.sleep(500);             
