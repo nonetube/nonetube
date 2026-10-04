@@ -7,7 +7,7 @@
 
     <application
         android:label="NoneTube"
-		android:icon="@drawable/firtube"
+		android:icon="@drawable/nonetube"
 		android:allowBackup="false"
 		android:fullBackupContent="false"		
 		android:debuggable="false"
