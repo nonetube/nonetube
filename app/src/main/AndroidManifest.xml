@@ -8,6 +8,7 @@
     <application
         android:label="NoneTube"
 		android:icon="@drawable/nonetube"
+		android:roundIcon="@mipmap/nonetube"
 		android:allowBackup="false"
 		android:fullBackupContent="false"		
 		android:debuggable="false"
