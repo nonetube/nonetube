@@ -14,18 +14,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 
 public class ZeroActivity extends Activity {
-
-	private boolean isAppForeground() {
-    ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-    java.util.List<ActivityManager.RunningAppProcessInfo> procs = am.getRunningAppProcesses();
-    if (procs == null) return false;
-    for (ActivityManager.RunningAppProcessInfo p : procs) {
-        if (p.processName.equals(getPackageName())) {
-            return p.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
-        }
-    }
-    return false;
-    }
 	
     static boolean BlockUnknownLinksAndProtocols = true;   
     static boolean rep = true;
@@ -33,15 +21,6 @@ public class ZeroActivity extends Activity {
     static boolean bannerBlock = true;
     static boolean VideoAdsSkip = true;
     
-    @Override
-    protected void onPause() {
-        super.onPause(); 
-          if (!isAppForeground()) {
-           wait = true;
-          }
-		finishAndRemoveTask();
-	}
-
        @Override
     protected void onResume() {
         super.onResume();
@@ -121,11 +100,9 @@ public class ZeroActivity extends Activity {
         btn.setTextColor(Color.WHITE);
         btn.setOnClickListener(v -> {
 			YTService.injectLogic(MainActivity.sharedWeb);
-            Intent i = new Intent(this, BackActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-            wait=false;
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
-            finishAndRemoveTask();
+            finish();
         });
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
         lp.setMargins(0, 100, 0, 0);
