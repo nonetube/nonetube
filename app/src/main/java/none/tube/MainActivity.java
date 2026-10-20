@@ -114,32 +114,6 @@ public class MainActivity extends Activity {
     } catch (Exception e) {
         
     }}
-
-    public boolean isMainActivityInStack() {
-    ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-    if (am == null) return false;
-
-    for (ActivityManager.AppTask task : am.getAppTasks()) {
-        ActivityManager.RecentTaskInfo info = task.getTaskInfo();
-        if (info != null && info.baseActivity != null && info.baseActivity.getClassName().equals(MainActivity.class.getName())) {
-            return true;
-        }
-    }
-    return false;
-    }
-
-
-    private boolean isAppForeground() {
-    ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-    java.util.List<ActivityManager.RunningAppProcessInfo> procs = am.getRunningAppProcesses();
-    if (procs == null) return false;
-    for (ActivityManager.RunningAppProcessInfo p : procs) {
-        if (p.processName.equals(getPackageName())) {
-            return p.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
-        }
-    }
-    return false;
-    }
     
     static class MyWebView extends WebView {
         MyWebView(Context context) {
@@ -190,27 +164,6 @@ public class MainActivity extends Activity {
         }
         root.addView(sharedWeb);
     }
-
-    private boolean isAudioPlaying() {
-    android.media.AudioManager am = (android.media.AudioManager) getSystemService(Context.AUDIO_SERVICE);
-    return am != null && am.isMusicActive();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        android.os.SystemClock.sleep(500);        
-        if (!isAppForeground()) android.os.SystemClock.sleep(1000);
-    }
-
-    @Override
-    protected void onStop() {        
-        super.onStop();       
-        android.os.SystemClock.sleep(500);                        
-        while (!isAppForeground() && isMainActivityInStack() && isAudioPlaying()) {
-            android.os.SystemClock.sleep(500);             
-        }         
-   }
 
     @Override
     protected void onResume() {
