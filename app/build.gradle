@@ -1,0 +1,28 @@
+plugins {
+id 'com.android.application'
+}
+
+android {
+namespace "nonetube.nonetube"
+compileSdk 35
+
+lint {
+   checkReleaseBuilds false
+}
+
+defaultConfig {  
+    applicationId "nonetube.nonetube"  
+    minSdk 30
+    targetSdk 37
+    versionCode 1
+    versionName "1.0"  
+}  
+
+buildTypes {  
+    release {  
+        minifyEnabled false  
+        shrinkResources false  
+   }  
+} }
+
+dependencies {}
